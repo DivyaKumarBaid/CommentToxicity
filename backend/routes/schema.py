@@ -13,3 +13,4 @@ class Comment(BaseModel):
     insult:bool=Field(...)
     identity_hate:bool=Field(...)
     visible:bool=Field(...)
+    time:str=Field(...)
