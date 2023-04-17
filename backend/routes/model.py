@@ -33,18 +33,22 @@ def get_all_comment():
 
 @router.post('/generate', status_code=201)
 def rank_comment(data:ModelGenerateParams):
-    try:
+    # try:
         # loading vectorizer to tokenize text
-        loaded_vectorizer_model = tf.keras.models.load_model(os.path.dirname(__file__)+'/vectorizer')
+        loaded_vectorizer_model = tf.keras.models.load_model(os.path.dirname(__file__)+'/vectorizer',compile=False)
         loaded_vectorizer = loaded_vectorizer_model.layers[0]
         input_text = loaded_vectorizer(data.input)
         # loading model to predict
         model = tf.keras.models.load_model(os.path.dirname(__file__)+"/saved_model/kaggle.h5")
-        res = model.predict(np.expand_dims(data.input,0))
+        res = model.predict(np.expand_dims(input_text,0))
         res_arr = res.flatten()>0.5
         now = datetime.now()
         current_date = str(now.date())
         curr_time = str(time.strftime("%H:%M:%S", time.localtime()))
+        visibility=False
+        for i in res_arr:
+             if i :
+                  visibility=True
 
         commented = Comment(
             comment=data.input,
@@ -54,10 +58,15 @@ def rank_comment(data:ModelGenerateParams):
             threat = res_arr[3],
             insult = res_arr[4],
             identity_hate = res_arr[5],
-            visible=True,
-            time={current_date+" "+curr_time}
+            visible=visibility,
+            time=current_date+" "+curr_time
         )
-        return commented
+        created_comment = db.comment_col.insert_one(dict(commented))
+        if created_comment:
+            return commented
+            
+        else :
+            raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-    except:
-        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    # except:
+    #     raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)
