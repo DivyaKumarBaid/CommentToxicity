@@ -30,5 +30,21 @@ The Dataset test output contains these parameters as in binary 1 -> present 0 ->
 - insult
 - identity_hate
 
+## How to ?
+- The repository is divided into 3 parts 
+    - Backend - build on FastApi
+    - Frontend - Build on React/Vite
+    - base_model_v1 - Build in Jupyter Notebook
+- Clone the repo and make sure you are using the correct directory while using the command for a particular library
+- Backend has an env which is there in the as env-sample, similarly for the frontend part, an env-sample has the content, for the jupyter notebook the dataset is uploaded
+
+## Hosting the repository
+- Backend - FastApi can be hosted on space (previously known as deta) or on Heroku (if you have dynos) or on render.com 
+- Frontend - React can be hosted on vercel or netlify
+- Model -Jupyter can be used on google collab or kaggle 
+
 ## Dependencies
-`!pip install tensorflow tensorflow gpu pandas matplotlib sklearn`
+- Backend - use `pip install -r requirements.txt`
+- frontend - use `npm i`
+- Jupyter - its there on the first column
+
