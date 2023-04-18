@@ -1,0 +1,15 @@
+# Spacefile Docs: https://go.deta.dev/docs/spacefile/v0
+v: 0
+micros:
+  - name: backend
+    src: ./
+    engine: python3.9
+    primary: true
+    run: uvicorn main:app --host 0.0.0.0 --port 8080
+    public_routes:
+      - "*"
+    presets:
+      env:
+        - name: MONGOURL
+          description: Secret message only available to this Micro
+          default: "mongodb+srv://code:code@cluster0.5jyfj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
