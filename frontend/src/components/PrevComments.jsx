@@ -21,9 +21,9 @@ const PrevComments = () => {
             })
             .then(data => {
                 setComments(data)
+                setLoading(false)
             })
             .catch(err => enqueueSnackbar(err.message, { variant: "error" }))
-        setLoading(false)
     }, [useBoolState.boolState])
 
     return (
