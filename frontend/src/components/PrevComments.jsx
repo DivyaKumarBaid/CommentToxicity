@@ -34,7 +34,7 @@ const PrevComments = () => {
                         {comments.map((item, idx) => {
                             return (
                                 <>
-                                    <div className={`cursor-pointer hover:blur-none w-[100%] h-[100%] rounded flex flex-col gap-2 md:p-4 p-2 md:pb-1 pb-1 shadow border`} key={"com" + idx} onClick={() => useBoolState.setOutput(item)}>
+                                    <div className={`cursor-pointer hover:blur-none w-[100%] h-[100%] rounded flex flex-col gap-2 md:p-4 p-2 md:pb-1 pb-1 shadow border-[0.5px] border-[var(--border-theme)] `} key={"com" + idx} onClick={() => useBoolState.setOutput(item)}>
                                         <div className={`${item.visible && "blur-sm"} text-lg  hover:blur-none tracking-widest font-['DM_SANS'] text-[var(--text-theme)] w-[100%]`}>{item.comment}</div>
                                         <div className="w-[100%] opacity-60 text-[var(--text-theme)] text-right text-sm">{item.time}</div>
                                     </div>
