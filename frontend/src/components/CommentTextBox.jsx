@@ -21,6 +21,11 @@ const CommentTextBox = () => {
 
     const handleSubmit = () => {
         setLoading(true);
+        if (!(value.trim().split("").length > 0)) {
+            enqueueSnackbar(err.message, { variant: "error" })
+            setLoading(false);
+            return
+        }
         const data = {
             "input": value
         }
@@ -37,7 +42,7 @@ const CommentTextBox = () => {
                         enqueueSnackbar("Successfully added", { variant: "success" })
                         setValue("");
                         useBoolState.setBoolState(old => !old)
-                        setLoading(false);
+
                     }
                     else {
                         throw Error("Something went wrong")
@@ -45,7 +50,7 @@ const CommentTextBox = () => {
                     return res.json();
                 })
                 .then(data => useBoolState.setOutput(data))
-                .catch(err => enqueueSnackbar(err.message, { variant: "error" }))
+                .catch(err => enqueueSnackbar(err.message, { variant: "error" })).finally(() => setLoading(false))
         }
         catch (err) {
             enqueueSnackbar(err, { variant: "error" })
