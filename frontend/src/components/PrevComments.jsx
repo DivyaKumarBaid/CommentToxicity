@@ -29,7 +29,7 @@ const PrevComments = () => {
             <div className="text-xl tracking-widest text-[var(--base-theme)] font-bold">Previous Comments</div>
             <div className="text-sm tracking-widest text-[var(--base-theme)] font-bold">Hover to see the blurred ones since they were detected by model</div>
             <div className="w-[100%] h-[90%] rounded-md shadow-md flex items-center flex-col">
-                {loading ? <div className="min-h-[65vh] w-[100%] flex justify-center items-center"><CircularProgress color="secondary" /></div> :
+                {loading ? <div className="text-white min-h-[65vh] w-[100%] flex justify-center items-center"><CircularProgress color="inherit" /></div> :
                     <div className='w-[100%] max-h-[65vh] overflow-y-auto flex flex-col gap-2'>
                         {comments.map((item, idx) => {
                             return (

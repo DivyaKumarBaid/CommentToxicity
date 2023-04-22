@@ -62,7 +62,7 @@ const CommentTextBox = () => {
             <div className="text-xl tracking-widest text-[var(--base-theme)] font-bold">Comment</div>
             <textarea
                 rows={10}
-                className="w-[100%] bg-[var(--light-base-theme)] border-2 rounded-md outline-none focus:border-[var(--base-theme)] md:p-2 tracking-wider"
+                className="w-[100%] bg-[var(--light-base-theme)] border-2 border-transparent rounded-md outline-none focus:border-[var(--border-theme)] text-[var(--text-theme)] opacity-95 md:p-2 tracking-wider"
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
             />
@@ -70,7 +70,7 @@ const CommentTextBox = () => {
                 className='text-center px-4 py-2 text-md font-["Montserrat"] text-[var(--text-theme)] bg-[var(--shadow)] rounded shadow cursor-pointer w-[100%] justify-center items-center'
                 onClick={() => !loading && handleSubmit()}
             >
-                {!loading ? <span>Send</span> : <div className="flex justify-center items-center"><CircularProgress color="secondary" className='!w-[25px] !h-[25px]' /></div>}
+                {!loading ? <span>Send</span> : <div className="flex justify-center items-center"><CircularProgress color="inherit" className='!w-[25px] !h-[25px]' /></div>}
             </div>
             <div className="text-xl tracking-widest text-[var(--base-theme)] mt-4 font-bold">Output</div>
             {useBoolState.output && <div className="text-sm tracking-widest text-[var(--base-theme)] font-bold">Comment : {useBoolState.output.comment}</div>}

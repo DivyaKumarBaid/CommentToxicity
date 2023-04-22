@@ -12,11 +12,14 @@ font-family: 'Source Code Pro', monospace; */
 @tailwind utilities;
 
 :root{
-  --base-theme: #9587B6;
-  --text-theme: #5c4d80;
-  --light-base-theme: #eee9f8;
-  --light-output-theme: #f3effa;
-  --shadow: #d9d1ea;
+  --box-color:rgb(20,20,24);
+  --bg-color:rgb(16,16,20);
+  --base-theme: #e4e4e4;
+  --text-theme: #e4e4e4;
+  --light-base-theme: rgba(14,14,16);
+  --border-theme: #767676;
+  --light-output-theme: rgba(14,14,16);
+  --shadow: #000000a4;
 }
 
 /* width */
