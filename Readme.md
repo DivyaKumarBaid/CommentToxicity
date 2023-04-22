@@ -1,6 +1,6 @@
 # Comment Toxicity
 
-## Game Plan
+## Different Sections
 - Loading Data
 - Preprocessing Comments
 - Creating A Deep NLP Model
