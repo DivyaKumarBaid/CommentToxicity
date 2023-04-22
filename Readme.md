@@ -3,7 +3,7 @@
 ## Game Plan
 - Loading Data
 - Preprocessing Comments
-- Craeting A Deep NLP Model
+- Creating A Deep NLP Model
 - Evaluating Model Performace
 - Creating a gradio DL App
 
@@ -42,6 +42,8 @@ The Dataset test output contains these parameters as in binary 1 -> present 0 ->
 - Backend - FastApi can be hosted on space (previously known as deta) or on Heroku (if you have dynos) or on render.com 
 - Frontend - React can be hosted on vercel or netlify
 - Model -Jupyter can be used on google collab or kaggle 
+
+Fontend - https://comment-toxicity.vercel.app/
 
 ## Dependencies
 - Backend - use `pip install -r requirements.txt`
