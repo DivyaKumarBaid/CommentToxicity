@@ -30,10 +30,10 @@ The Dataset test output contains these parameters as in binary 1 -> present 0 ->
 - insult
 - identity_hate
 
-## How to ?
+## Setup
 - The repository is divided into 3 parts 
-    - Backend - build on FastApi
-    - Frontend - Build on React/Vite
+    - Backend - build on FastApi - `uvicorn main:app --reload`
+    - Frontend - Build on React/Vite - `npm run dev`
     - base_model_v1 - Build in Jupyter Notebook
 - Clone the repo and make sure you are using the correct directory while using the command for a particular library
 - Backend has an env which is there in the as env-sample, similarly for the frontend part, an env-sample has the content, for the jupyter notebook the dataset is uploaded
