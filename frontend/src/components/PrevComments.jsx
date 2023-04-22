@@ -9,8 +9,6 @@ const PrevComments = () => {
     const [loading, setLoading] = React.useState(true);
     const useBoolState = useCommentReload();
 
-    console.log(loading)
-
     React.useEffect(() => {
         setLoading(true)
         fetch(`${import.meta.env.VITE_BASE_URL}/comment`)

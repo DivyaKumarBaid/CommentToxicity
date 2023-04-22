@@ -21,8 +21,8 @@ const CommentTextBox = () => {
 
     const handleSubmit = () => {
         setLoading(true);
-        if (!(value.trim().split("").length > 0)) {
-            enqueueSnackbar(err.message, { variant: "error" })
+        if (value.trim() == "") {
+            enqueueSnackbar("Input field is empty", { variant: "error" })
             setLoading(false);
             return
         }
@@ -56,8 +56,6 @@ const CommentTextBox = () => {
             enqueueSnackbar(err, { variant: "error" })
         }
     }
-
-    console.log(useBoolState.output)
 
     return (
         <div className="md:w-[45%] w-[100%] flex flex-col gap-2">
